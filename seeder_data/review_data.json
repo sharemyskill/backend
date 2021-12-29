@@ -1,0 +1,52 @@
+[
+
+    {
+        "_id": "6076cfa408541e2ba057e531",
+        "skiller": "6076cfa408541e2ba057e341",
+        "buyer": "6076cfa408541e2ba057e337",
+        "orderId": "6076cfa408541e2ba057e538",
+        "review": "I like his work.",
+        "rating": 4
+    },
+    {
+        "_id": "6076cfa408541e2ba057e532",
+        "skiller": "6076cfa408541e2ba057e341",
+        "buyer": "6076cfa408541e2ba057e338",
+        "orderId": "6076cfa408541e2ba057e539",
+        "review": "I like his work.",
+        "rating": 3
+    },
+    {
+        "_id": "6076cfa408541e2ba057e533",
+        "skiller": "6076cfa408541e2ba057e341",
+        "buyer": "6076cfa408541e2ba057e332",
+        "orderId": "6076cfa408541e2ba057e540",
+        "review": "I like his work.",
+        "rating": 5
+    },
+    {
+        "_id": "6076cfa408541e2ba057e534",
+        "skiller": "6076cfa408541e2ba057e341",
+        "buyer": "6076cfa408541e2ba057e339",
+        "orderId": "6076cfa408541e2ba057e541",
+        "review": "I like his work.",
+        "rating": 4.5 
+    },
+    {
+        "_id": "6076cfa408541e2ba057e538",
+        "skiller": "6076cfa408541e2ba057e342",
+        "buyer": "6076cfa408541e2ba057e337",
+        "orderId": "6076cfa408541e2ba057e549",
+        "review": "I like his work.",
+        "rating": 4
+    },
+    {
+        "_id": "6076cfa408541e2ba057e539",
+        "skiller": "6076cfa408541e2ba057e342",
+        "buyer": "6076cfa408541e2ba057e338",
+        "orderId": "6076cfa408541e2ba057e550",
+        "review": "I like his work.",
+        "rating": 3
+    }
+
+]

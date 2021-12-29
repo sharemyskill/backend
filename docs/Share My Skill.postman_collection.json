@@ -1,0 +1,528 @@
+{
+	"info": {
+		"_postman_id": "65392b2d-8995-46b9-9e38-2a508d90c7e2",
+		"name": "Share My Skill",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Category",
+			"item": [
+				{
+					"name": "Get all users from categories",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{URL}}/api/category?cat=ভালো-লাগার-হাজার-উপায়",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"api",
+								"category"
+							],
+							"query": [
+								{
+									"key": "cat",
+									"value": "ভালো-লাগার-হাজার-উপায়"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Category By Id",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "{{URL}}/api/category/6076cfa408541e2ba057e905",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"api",
+								"category",
+								"6076cfa408541e2ba057e905"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create new category",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-type",
+								"value": "application/json",
+								"description": "JSON Type",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "categoryName",
+									"value": "Web & Applications",
+									"type": "text"
+								},
+								{
+									"key": "subCategoryName[0]",
+									"value": "UX design",
+									"type": "text"
+								},
+								{
+									"key": "subCategoryName[1]",
+									"value": "App Building",
+									"type": "text"
+								},
+								{
+									"key": "subCategoryName[2]",
+									"value": "Web Design",
+									"type": "text"
+								},
+								{
+									"key": "subCategoryName[3]",
+									"value": "Development Consultancy",
+									"type": "text"
+								},
+								{
+									"key": "image",
+									"type": "file",
+									"src": "/C:/Users/User/Pictures/CSE/syed.jpg"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{URL}}/api/category",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"api",
+								"category"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Add Subcategories",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-type",
+								"value": "application/json",
+								"description": "JSON Type",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"subCategoryName\": [\r\n        \"Editing in Premiere pro\",\r\n        \"Making Promos\",\r\n        \"VFX\"\r\n    ]\r\n}"
+						},
+						"url": {
+							"raw": "{{URL}}/api/category/6076cfa408541e2ba057e905",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"api",
+								"category",
+								"6076cfa408541e2ba057e905"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get all users from subcategories",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{URL}}/api/category?sub=typing,মেডিটেশন",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"api",
+								"category"
+							],
+							"query": [
+								{
+									"key": "sub",
+									"value": "typing,মেডিটেশন"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "User",
+			"item": [
+				{
+					"name": "Get all user",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{URL}}/api/user",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"api",
+								"user"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get or Create User By Id",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-type",
+								"value": "application/json",
+								"description": "JSON Type",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"uid\": \"UwIQyDBB6ZeJLcaxH3RAoDYbCKK2\",\r\n    \"email\": \"shwarup101@gmail.com\",\r\n    \"emailVerified\": true,\r\n    \"displayName\": \"shw arup\",\r\n    \"isAnonymous\": false,\r\n    \"photoURL\": \"https://lh3.googleusercontent.com/a/AATXAJx47a6lXNvOlKpJw8Dk-3Sy6NaVM-lw5sumvmsR=s96-c\",\r\n    \"providerData\": [\r\n      {\r\n        \"providerId\": \"google.com\",\r\n        \"uid\": \"100261839498154755166\",\r\n        \"displayName\": \"shw arup\",\r\n        \"email\": \"shwarup101@gmail.com\",\r\n        \"phoneNumber\": null,\r\n        \"photoURL\": \"https://lh3.googleusercontent.com/a/AATXAJx47a6lXNvOlKpJw8Dk-3Sy6NaVM-lw5sumvmsR=s96-c\"\r\n      }\r\n    ],\r\n    \"stsTokenManager\": {\r\n      \"refreshToken\": \"ACzBnChynceyeZjRZM4R4RsVnZK0cnTuuOjteFPCU2cFoAYUd8rJ0ayiGqs65TFRDjqQxskPE7TWYP79YBOza6nT2V0s6Tp2lk-9hdSuoYIo-1cR9t2wvec4pYT8Ry8uEOk72Dx8480XWK48aONgS5AxOlE59MulnSI4k-ubw0oEgsIP1dA-tjWIqFwToSPMn1FtpUL37Se5hqYB9c9lszs7zHnwpILYJ4qMlPJAb1J22ih3v-lJWNl8yiZhz_4H_c092oPjV6G2qYKQjcqd1csyRzFbnsHH-wiUGnPOsMMLpE6JmmmCyKwgXtFxX0O1FujIeh2GKikzxa_YhZmMiB3DuRq6gjpIzw2SJzq0g7qvVDVAcgNp1-d14gCFyt905meQiWW9LR_2pigTpkl1IhzuiUO7gk1Lrdj9LUrO1KuG97MrKe9QwXs\",\r\n      \"accessToken\": \"eyJhbGciOiJSUzI1NiIsImtpZCI6IjM1MDM0MmIwMjU1MDAyYWI3NWUwNTM0YzU4MmVjYzY2Y2YwZTE3ZDIiLCJ0eXAiOiJKV1QifQ.eyJuYW1lIjoic2h3IGFydXAiLCJwaWN0dXJlIjoiaHR0cHM6Ly9saDMuZ29vZ2xldXNlcmNvbnRlbnQuY29tL2EvQUFUWEFKeDQ3YTZsWE52T2xLcEp3OERrLTNTeTZOYVZNLWx3NXN1bXZtc1I9czk2LWMiLCJpc3MiOiJodHRwczovL3NlY3VyZXRva2VuLmdvb2dsZS5jb20vbGFjLXByb2plY3QtMWQ4YTAiLCJhdWQiOiJsYWMtcHJvamVjdC0xZDhhMCIsImF1dGhfdGltZSI6MTYzMzQyNzIyMiwidXNlcl9pZCI6IlV3SVF5REJCNlplSkxjYXhIM1JBb0RZYkNLSzIiLCJzdWIiOiJVd0lReURCQjZaZUpMY2F4SDNSQW9EWWJDS0syIiwiaWF0IjoxNjMzNDI3MjIyLCJleHAiOjE2MzM0MzA4MjIsImVtYWlsIjoic2h3YXJ1cDEwMUBnbWFpbC5jb20iLCJlbWFpbF92ZXJpZmllZCI6dHJ1ZSwiZmlyZWJhc2UiOnsiaWRlbnRpdGllcyI6eyJnb29nbGUuY29tIjpbIjEwMDI2MTgzOTQ5ODE1NDc1NTE2NiJdLCJlbWFpbCI6WyJzaHdhcnVwMTAxQGdtYWlsLmNvbSJdfSwic2lnbl9pbl9wcm92aWRlciI6Imdvb2dsZS5jb20ifX0.FxHXkuyayToL9cTtLi1-XLXV8LOlE5xAp4suLq2B4fRPxsooCN2S07HqceFukccFjifgbtryOZ11K-aDFL0Fg25bXARFF80xKrdbaDMe7nnqENyGeBieTkKz7p03eY-0LCaSK3wEX3gs-Mqq1r_driGJSqlMwMB9MX2GRLBPfzgIvVjFgRjqEvLInLmzTU6nQTTnqCGSktipmWvbTZD4CQCnJU1b3fB4QNChhLoQ-hgdT5bAUESBAaMpu82N6LHDDUdDaiLdsZwEjFM8D6Zwvn58qmhGdgGsXLX1OrfwQHCrwK1kbgK7ZNboZyj7XGG-tTVF133M9zqNettGuUkYVQ\",\r\n      \"expirationTime\": 1633430822149\r\n    },\r\n    \"createdAt\": \"1633427222074\",\r\n    \"lastLoginAt\": \"1633427222075\",\r\n    \"apiKey\": \"AIzaSyAOjNU0FBeJXD75cYE4F_4fhwlNPo2i4eY\",\r\n    \"appName\": \"[DEFAULT]\"\r\n  }"
+						},
+						"url": {
+							"raw": "{{URL}}/api/user/get-or-create",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"api",
+								"user",
+								"get-or-create"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Necessary Details for homepage",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{URL}}/api/user/home?limit=2",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"api",
+								"user",
+								"home"
+							],
+							"query": [
+								{
+									"key": "limit",
+									"value": "2"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Register User",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-type",
+								"value": "application/json",
+								"description": "JSON Type",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "name",
+									"value": "Asmani",
+									"type": "text"
+								},
+								{
+									"key": "type",
+									"value": "skiller",
+									"type": "text"
+								},
+								{
+									"key": "category",
+									"value": "6076cfa408541e2ba057e904",
+									"type": "text"
+								},
+								{
+									"key": "subcategory",
+									"value": "Typing",
+									"type": "text"
+								},
+								{
+									"key": "description",
+									"value": "My Name is Asmani",
+									"type": "text"
+								},
+								{
+									"key": "whatsapp",
+									"value": "01961229150",
+									"type": "text"
+								},
+								{
+									"key": "bkash",
+									"value": "01713035069",
+									"type": "text"
+								},
+								{
+									"key": "longDescription",
+									"value": "If you're looking for random paragraphs, you've come to the right place. When a random word or a random sentence isn't quite enough, the next logical step is to find a random paragraph. We created the Random Paragraph Generator with you in mind. The process is quite simple. Choose the number of random paragraphs you'd like to see and click the button. Your chosen number of paragraphs will instantly appear.",
+									"type": "text"
+								},
+								{
+									"key": "location",
+									"value": "Dhaka",
+									"type": "text"
+								},
+								{
+									"key": "isPopular",
+									"value": "true",
+									"type": "text"
+								},
+								{
+									"key": "projectPrice [0]",
+									"value": "1200",
+									"type": "text"
+								},
+								{
+									"key": "projectPrice [1]",
+									"value": "2400",
+									"type": "text"
+								},
+								{
+									"key": "projectPrice [2]",
+									"value": "4800",
+									"type": "text"
+								},
+								{
+									"key": "projectDescriptions[0]",
+									"value": "A paragraph is a series of sentences that are organized and coherent, and are all related to a single topic. Almost every piece of writing you do that is longer than a few sentences should be organized into paragraphs.",
+									"type": "text"
+								},
+								{
+									"key": "projectDescriptions[1]",
+									"value": "Medium is an American online publishing platform developed by Evan Williams and launched in August 2012. It is owned by A Medium Corporation",
+									"type": "text"
+								},
+								{
+									"key": "projectDescriptions[2]",
+									"value": "Civil engineering is a professional engineering discipline that deals with the design, construction, and maintenance of the physical and naturally built environment, including public works such as roads, bridges, canals, dams, airports, sewage systems, pipelines, structural components of buildings, and railways",
+									"type": "text"
+								},
+								{
+									"key": "image",
+									"type": "file",
+									"src": "/C:/Users/User/Pictures/CSE/syed.jpg"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{URL}}/api/user/register",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"api",
+								"user",
+								"register"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Single User By Id",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "{{URL}}/api/user/6076cfa408541e2ba057e331",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"api",
+								"user",
+								"6076cfa408541e2ba057e331"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Search User + Category ",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "{{URL}}/api/search?text=a",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"api",
+								"search"
+							],
+							"query": [
+								{
+									"key": "text",
+									"value": "a"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Admin",
+			"item": [
+				{
+					"name": "Toggle popularity of user or category",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-type",
+								"value": "application/json",
+								"description": "JSON Type",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"id\" : \"616c654d7dd6f8fab23c21da\"\r\n}"
+						},
+						"url": {
+							"raw": "{{URL}}/api/admin/toggle?field=category",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"api",
+								"admin",
+								"toggle"
+							],
+							"query": [
+								{
+									"key": "field",
+									"value": "category"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Review",
+			"item": [
+				{
+					"name": "Get reviews for a single user",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "{{URL}}/api/review/6076cfa408541e2ba057e335",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"api",
+								"review",
+								"6076cfa408541e2ba057e335"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Order",
+			"item": [
+				{
+					"name": "Get all orders for a user",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{URL}}/api/order/6076cfa408541e2ba057e331",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"api",
+								"order",
+								"6076cfa408541e2ba057e331"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}

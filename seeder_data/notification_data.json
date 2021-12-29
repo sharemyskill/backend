@@ -1,0 +1,25 @@
+[{
+        "_id": "6076cfa908541e2ba057e030",
+        "user": "6076cfa408541e2ba057e345",
+        "notification": "request made",
+        "orderId": "6076cfa408541e2ba057e561"
+    },
+    {
+        "_id": "6076cfa908541e2ba057e031",
+        "user": "6076cfa408541e2ba057e346",
+        "notification": "request made",
+        "orderId": "6076cfa408541e2ba057e562"
+    },
+    {
+        "_id": "6076cfa908541e2ba057e032",
+        "user": "6076cfa408541e2ba057e336",
+        "notification": "offer accepted",
+        "orderId": "6076cfa408541e2ba057e563"
+    },
+    {
+        "_id": "6076cfa908541e2ba057e033",
+        "user": "6076cfa408541e2ba057e337",
+        "notification": "offer accepted",
+        "orderId": "6076cfa408541e2ba057e564"
+    }
+]

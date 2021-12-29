@@ -1,0 +1,84 @@
+[
+  {
+    "_id": "6076cfa408541e2ba057e901",
+    "categoryName": "design-and-arts",
+    "description": "Design and art share the same fundamental creative visual principles: Shape, color, line, contrast, balance, rhythm, etc. Both designers and artists study artistic methods such as drawing, painting, or sculpting to develop their creative abilities. Both designs and artworks can be visually attractive",
+    "subCategoryName": [
+      "logo-design",
+      "t-shirt-design",
+      "poster-design",
+      "brand-design",
+      "illustrator-art",
+      "creative-sketch",
+      "portrait-landscape",
+      "caricature-cartoon"
+    ],
+    "isPopular": true
+  },
+
+  {
+    "_id": "6076cfa408541e2ba057e902",
+    "categoryName": "excel-projects",
+    "description": "Microsoft Excel is a spreadsheet developed by Microsoft for Windows, macOS, Android and iOS. It features calculation, graphing tools, pivot tables, and a macro programming language called Visual Basic for Applications.",
+    "subCategoryName": ["data-entry", "excel-reports", "excel-dashboards"],
+    "isPopular": true
+  },
+
+  {
+    "_id": "6076cfa408541e2ba057e903",
+    "categoryName": "powerpoint-presentation",
+    "description": "Microsoft PowerPoint is a presentation program, created by Robert Gaskins and Dennis Austin at a software company named Forethought, Inc. It was released on April 20, 1987, initially for Macintosh computers only. Microsoft acquired PowerPoint for about $14 million three months after it appeared.",
+    "subCategoryName": [
+      "project-presentation",
+      "business-case-presentation",
+      "official-presentation"
+    ],
+    "isPopular": true
+  },
+
+  {
+    "_id": "6076cfa408541e2ba057e904",
+    "categoryName": "typing-and-content-writing",
+    "description": "Learn to write content and earn money",
+    "subCategoryName": ["typing", "content-writing"]
+  },
+
+  {
+    "_id": "6076cfa408541e2ba057e905",
+
+    "description": "Learn to write your CV and apply for a job",
+    "categoryName": "cv-writing"
+  },
+  {
+    "_id": "6076cfa408541e2ba057e906",
+    "categoryName": "web-and-applications",
+    "description": "Build a website",
+    "subCategoryName": [
+      "web-design",
+      "app-building",
+      "development-consultancy",
+      "ux-design"
+    ]
+  },
+  {
+    "_id": "6076cfa408541e2ba057e907",
+    "categoryName": "video-editing",
+    "description": "Learn how to edit videos",
+    "subCategoryName": [
+      "editing-in-premiere-pro",
+      "making-promos",
+      "vfx"
+    ]
+  },
+  {
+    "_id": "6076cfa408541e2ba057e908",
+    "categoryName": "quick-tutors",
+    "description": "Help students learn",
+    "subCategoryName": [
+      "teaching-a-topic",
+      "solving-a-problem",
+      "assignment-help"
+    ]
+
+  }
+]
