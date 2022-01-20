@@ -1,6 +1,7 @@
 import * as orderInterface from '../db/interface/orderInterface.js';
 import * as userInterface from '../db/interface/userInterface.js';
 import * as notificationInterface from '../db/interface/notificationInterface.js';
+import * as categoryInterface from '../db/interface/categoryInterface.js';
 
 /* eslint-disable */
 
@@ -29,6 +30,9 @@ const handlePOSTaddOrder = async(req, res, next) => {
                 status: 'OK',
                 message: "Buyer can't post request for this skiller now"
             });
+
+        const categoryQueryResult = await categoryInterface.findCategoryFromSubcategory( req.body.subcategory );
+        req.body.category = categoryQueryResult.data; // setting the category here since the data won't come from the frontend
 
         const orderQueryResult = await orderInterface.addOrder(req.body);
         if (orderQueryResult.status == 'OK') {

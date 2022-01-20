@@ -6,13 +6,31 @@ import User from '../models/User.js';
  * @description list of all projects from the skillers portfolio
  * @returns all projects
  */
-const getPortfolioForSkiller = async (skillerId) => {
+const getPortfolioForSkiller = async (skillerId , category , subcategory ) => {
   try {
     const projects = await User.findById(skillerId).select('portfolio');
 
+    let final = []
+
+    if( subcategory ){
+      for( let project of projects.portfolio ){
+        if( project.subcategory == subcategory )
+          final.push(project)
+      }
+    }
+    else if( category ){
+      for( let project of projects.portfolio ){
+        if( project.category == category )
+          final.push(project)
+      }
+    }
+    else {
+      final = projects.portfolio
+    }
+
     if (projects) {
       return {
-        data: projects,
+        data: final,
         status: 'OK',
         message: `All projects from the portfolio found for the user from the database`,
       };

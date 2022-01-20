@@ -28,6 +28,11 @@ const TransactionSchema = new mongoose.Schema({
     default: false,
   },
 
+  rejectedStatus: {
+    type: Boolean,
+    default: false,
+  },
+
   issueDate: {
     type: Date,
     default: Date.now,

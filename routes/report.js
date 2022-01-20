@@ -11,5 +11,6 @@ reportRouter.get("/:userId", reportController.handleGETallReportsForAUser);
  * Admin Route
  */
 reportRouter.get("/", reportController.handleGETReportsForAdmin);
+reportRouter.put("/", reportController.handlePUTChangeReportStatus);
 
 export default reportRouter;

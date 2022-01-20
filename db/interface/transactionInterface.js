@@ -74,7 +74,6 @@ const getAllTransactions = async(object) => {
 const createTransaction = async(body) => {
     try {
         const transaction = await Transaction.create(body);
-
         if (transaction) {
             return {
                 data: transaction,
@@ -115,7 +114,8 @@ const changeTrxState = async(body, user) => {
         if (user.type == 'admin') {
             changedTrx = await Transaction.findByIdAndUpdate(
                 body.id, {
-                    confirmed: body.newStatus, //True or False ; decided by admin
+                    confirmed: (body.rejectStatus)? false : body.newStatus, //True or False ; false only if transaction has been rejected
+                    rejectedStatus: (body.rejectedStatus)? true: false
                 }, {
                     new: true,
                 }

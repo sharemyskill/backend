@@ -54,7 +54,7 @@ const getAllReportsForAUser = async(userId, findParams, sortBy) => {
     }
 };
 
-const getReportsForAdmin = async(sortBy) => {
+const getReportsForAdmin = async() => {
     try {
         const allReports = await Report.find()
             .populate({
@@ -64,8 +64,7 @@ const getReportsForAdmin = async(sortBy) => {
             .sort({
                 //1 is used for ascending order while -1 is used for descending order.
                 issueDate: -1,
-                status: -1,
-                sortBy,
+                status: -1
             });
 
         return {
@@ -83,4 +82,29 @@ const getReportsForAdmin = async(sortBy) => {
     }
 };
 
-export { addReport, getAllReportsForAUser, getReportsForAdmin };
+
+
+const changeReportStatus = async( reportId ) => {
+    try {
+        const report = await Report.findByIdAndUpdate(reportId , {
+            status: true
+        }, {
+            new: true
+        });
+
+        return {
+            data: report,
+            status: 'OK',
+            message: `Report has been handled`,
+        };
+    } catch (e) {
+        console.log(e);
+        return {
+            data: null,
+            status: 'EXCEPTION',
+            message: e.message,
+        };
+    }
+};
+
+export { addReport, getAllReportsForAUser, getReportsForAdmin , changeReportStatus};

@@ -4,7 +4,7 @@ import * as projectInterface from '../db/interface/projectInterface.js';
 
 /**
  * @description this method returns all projects from a skiller's portfolio from the database
- * @route - GET /api/project/:skillerId
+ * @route - GET /api/project/:skillerId?cat=&sub=
  * @param {*} req
  * @param {*} res
  * @param {*} next
@@ -12,7 +12,9 @@ import * as projectInterface from '../db/interface/projectInterface.js';
 const handleGETProjectsForASpecificSkiller = async (req, res, next) => {
   try {
     const projectQueryResult = await projectInterface.getPortfolioForSkiller(
-      req.params.skillerId
+      req.params.skillerId,
+      req.query.cat,
+      req.query.sub
     );
 
     if (projectQueryResult.status == 'OK') {

@@ -226,6 +226,44 @@ const searchCategory = async (text) => {
   }
 };
 
+
+/* eslint-disable */
+
+/**
+ * @description name of the category
+ * @returns category
+ */
+const findCategoryFromSubcategory = async (sub) => {
+  try {
+    const category = await Category.find( {
+      subCategoryName: sub
+    });
+
+    if( category.length == 1 ){
+      return {
+        data: category[0].categoryName,
+        status: 'OK',
+        message: `Category found from the database`
+      }
+    }
+
+    return {
+      data: null,
+      status: 'ERROR',
+      message: `No category found from the database`,
+    };
+  } catch (e) {
+    return {
+      data: null,
+      status: 'EXCEPTION',
+      message: e.message,
+    };
+  }
+};
+
+
+
+
 export {
   getAllCategories,
   getCategoryById,
@@ -233,4 +271,5 @@ export {
   updateSubCategory,
   togglePopularity,
   searchCategory,
+  findCategoryFromSubcategory
 };

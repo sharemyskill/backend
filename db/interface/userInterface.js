@@ -1,5 +1,7 @@
 import User from '../models/User.js';
 import { mongoose } from '../mongoose.js';
+import * as fs from 'fs';
+import { upload, download } from '../../src/middlewares/uploadImage.js';
 
 /* eslint-disable */
 
@@ -13,14 +15,18 @@ const getAllUsers = async (popular, limitCount, sortBy) => {
     let users = await User.find(popular)
       .sort(sortBy) // sort the users in descending rating and ascending join date
       .limit(limitCount);
-    // .populate({
-    //     path: 'category',
-    //     select: 'categoryName',
-    // });
+
+    let images = [];
+    for (let user of users) {
+      if (user.image) {
+        images.push(download(user._id));
+      }
+    }
 
     if (users.length != 0) {
       return {
         data: users,
+        images,
         status: 'OK',
         message: `All users found from the database`,
       };
@@ -49,14 +55,14 @@ const getAllUsers = async (popular, limitCount, sortBy) => {
 const getUserById = async (userId) => {
   try {
     const user = await User.findById(userId);
-    // .populate({
-    //     path: 'category',
-    //     select: 'categoryName',
-    // });
+    // const image = await download(userId);
+    let image;
 
+    if (user.image) image = await download(userId);
     if (user) {
       return {
         data: user,
+        image,
         status: 'OK',
         message: `User found from the database`,
       };
@@ -159,11 +165,36 @@ const togglePopularity = async (id) => {
  * @description register a user
  * @returns newly registered user
  */
-const registerUser = async (body, filename, mimetype) => {
+const registerUser = async (body, file) => {
   try {
     let user;
 
-    if( filename ){
+    if (file) {
+      const img = await upload(file);
+
+      user = await User.findOneAndUpdate(
+        { _id: body.id },
+        {
+          name: body.name,
+          type: body.type,
+          category: body.type == 'skiller' ? body.category : null,
+          subcategory: body.type == 'skiller' ? body.subcategory : null,
+          description: body.description,
+          whatsapp: body.whatsapp,
+          bkash: body.bkash,
+          longDescription: body.longDescription,
+          location: body.location,
+          projectDescriptions: body.projectDescriptions,
+          projectPrice: body.projectPrice,
+          projectDuration: body.projectDuration,
+          image: img ? true : false,
+        },
+        {
+          new: true,
+          runValidators: true,
+        }
+      );
+    } else {
       user = await User.findOneAndUpdate(
         { _id: body.id },
         {
@@ -179,38 +210,10 @@ const registerUser = async (body, filename, mimetype) => {
           projectDescriptions: body.projectDescriptions,
           projectPrice: body.projectPrice,
           projectDuration: body.projectDuration,
-  
-          image: {
-            path: './src/uploads/user/' + filename,
-            contentType: mimetype,
-          },
         },
         {
           new: true,
-          runValidators: true
-        }
-      );
-    }
-    else {
-      user = await User.findOneAndUpdate(
-        { _id: body.id },
-        {
-          name: body.name,
-          type: body.type,
-          category: body.category,
-          subcategory: body.subcategory,
-          description: body.description,
-          whatsapp: body.whatsapp,
-          bkash: body.bkash,
-          longDescription: body.longDescription,
-          location: body.location,
-          projectDescriptions: body.projectDescriptions,
-          projectPrice: body.projectPrice,
-          projectDuration: body.projectDuration
-        },
-        {
-          new: true,
-          runValidators: true
+          runValidators: true,
         }
       );
     }
@@ -253,7 +256,11 @@ const getSearchedUsers = async (searchType, text) => {
         { category: new RegExp(text, 'i') },
       ],
     });
-    
+
+    let images = [];
+    for (let user of users) {
+      if (user.image) images.push(download(user._id));
+    }
 
     if (users.length != 0) {
       return {
@@ -288,16 +295,21 @@ const getSearchedUsers = async (searchType, text) => {
  */
 const getUsersSubCategory = async (sub) => {
   try {
-
     let users = await User.find({
       subcategory: {
-        $in : sub
+        $in: sub,
       },
     });
+
+    let images = [];
+    for (let user of users) {
+      if (user.image) images.push(download(user._id));
+    }
 
     if (users) {
       return {
         data: users,
+        images,
         status: 'OK',
         message: `All users from this category or subcategory found from the database`,
       };
@@ -328,14 +340,20 @@ const getUsersSubCategory = async (sub) => {
 const getUsersFromCategory = async (cat) => {
   try {
     const users = await User.find({
-      category:{
-        $in : cat
-      }
+      category: {
+        $in: cat,
+      },
     });
+
+    let images = [];
+    for (let user of users) {
+      if (user.image) images.push(download(user._id));
+    }
 
     if (users) {
       return {
         data: users.filter((item) => item.category),
+        images,
         status: 'OK',
         message: `All users for this category from the database`,
       };

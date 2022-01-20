@@ -3,6 +3,7 @@ import cors from 'cors';
 import dotenv from 'dotenv';
 dotenv.config({ path: './.env' });
 
+
 import { initializeFirebase, decodeToken } from './lib/firebase.js';
 import { authMiddleware } from './middlewares/auth.js';
 import rejectRequestEvery2days from './jobs/rejectRequest.js';

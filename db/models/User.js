@@ -177,18 +177,21 @@ const UserSchema = new mongoose.Schema({
         }]
     },
 
-
-
     image: {
-        path: {
-            type: String,
-            // default: '../client/public/uploads/user.png'
-        },
-        contentType: {
-            type: String,
-            default: 'image/jpeg'
-        }
+        type: Boolean,
+        default: false
     }
+
+    // image: {
+    //     path: {
+    //         type: String,
+    //         // default: '../client/public/uploads/user.png'
+    //     },
+    //     contentType: {
+    //         type: String,
+    //         default: 'image/jpeg'
+    //     }
+    // }
 
 
 });

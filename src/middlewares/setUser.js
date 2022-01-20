@@ -1,13 +1,13 @@
 const setUser = (type) => async (req, res, next) => {
   if (type == 1) {
     // req.user = {
-    //     "_id": "6076cfa408541e2ba057e343",
-    //     "name": "Akid",
-    //     "email": "akid100@gmail.com"
+    //     "_id": "6076cfa408541e2ba057e332",
+    //     // "name": "Akid",
+    //     "email": "rafsani786@gmail.com"
     // }
 
     req.user = {
-      _id: '6076cfa408541e2ba057e331',
+      _id: '6076cfa408541e2ba057e332',
       name: 'Rafsani',
       type: 'buyer',
       description: 'My name is Syed',
@@ -24,7 +24,7 @@ const setUser = (type) => async (req, res, next) => {
     };
   } else {
     req.user = {
-      uid: 'hJPxR6lZ9ohO2yeDRecB52AJGIf1',
+      uid: '6076cfa408541e2ba057e331',
       email: 'rafsani786@gmail.com',
       emailVerified: true,
       displayName: 'shw arup',

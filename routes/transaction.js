@@ -18,8 +18,8 @@ import * as notificationController from '../controller/notificationController.js
 
 transactionRouter.get(
   '/',
-  authMiddleware,
-  // setUser(1),
+  // authMiddleware,
+  setUser(1),
   transactionController.handleGETAllTransactions
 );
 transactionRouter.get('/:trxId', transactionController.handleGETaTransaction);
@@ -35,7 +35,7 @@ transactionRouter
   .route('/')
   .post(
     // setUser(1),
-    authMiddleware,
+     authMiddleware,
     transactionController.handlePOSTAddTransaction);
 
 export default transactionRouter;

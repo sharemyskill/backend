@@ -9,8 +9,8 @@ import setUser from '../src/middlewares/setUser.js';
 projectRouter
   .route('/')
   .put( 
-      setUser(1),
-    //   authMiddleware , 
+      // setUser(1),
+      authMiddleware , 
       projectController.handleAddProjectsToSkillerPortfolio );
 
 projectRouter

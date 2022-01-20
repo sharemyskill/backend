@@ -7,6 +7,7 @@ const ReportSchema = new mongoose.Schema({
     orderId: {
         type: mongoose.Schema.Types.ObjectId,
         ref: 'Order',
+        unique: true,
         required: true
     },
 
@@ -22,7 +23,7 @@ const ReportSchema = new mongoose.Schema({
     },
 
     status: {
-        // either handled or unhandled
+        // either refunded or not refunded
         type: Boolean,
         default: false
     },

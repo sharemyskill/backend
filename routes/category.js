@@ -5,7 +5,7 @@ import express from 'express';
 let categoryRouter = express.Router();
 
 import * as categoryController from '../controller/categoryController.js'
-import imageUpload from '../src/middlewares/uploadImage.js'
+import {imageUpload} from '../src/middlewares/uploadImage.js'
 
 categoryRouter.route('/')
     .get(categoryController.handleGETSubCategoryByName)

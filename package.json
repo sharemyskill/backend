@@ -6,10 +6,11 @@
   "type": "module",
   "scripts": {
     "dev": "nodemon src/index.js",
-    "start": "pm2 start src/index.js",
+    "prod": "pm2 start src/index.js",
     "prod-stop": "pm2 stop all"
   },
   "dependencies": {
+    "aws-sdk": "^2.1048.0",
     "cors": "^2.8.5",
     "dotenv": "^10.0.0",
     "express": "^4.17.1",

@@ -38,7 +38,7 @@ const getAllNotificationsForAUser = async (userId) => {
  * @description add notification to schema
  * @returns added notification
  */
-const addNotification = async ( body ) => {
+const addNotification = async (body) => {
   try {
     const notification = await Notification.create(body);
 
@@ -64,4 +64,53 @@ const addNotification = async ( body ) => {
   }
 };
 
-export { getAllNotificationsForAUser, addNotification };
+/* eslint-disable */
+
+/* eslint-disable */
+
+/**
+ * @description update seen status
+ * @returns updated notif
+ */
+const updateNotificationStatus = async (user, id) => {
+  try {
+    const notification = await Notification.findOneAndUpdate(
+      {
+        _id: id,
+        user,
+        seen : false
+      },
+      {
+        seen: true,
+      }, {
+        new: true
+      }
+    );
+
+    if (notification) {
+      return {
+        data: notification,
+        status: 'OK',
+        message: `Notification updated from the database`,
+      };
+    }
+
+    return {
+      data: null,
+      status: 'OK',
+      message: `No notification updated from the database`,
+    };
+  } catch (e) {
+    return {
+      data: null,
+      status: 'EXCEPTION',
+      message: e.message,
+    };
+  }
+};
+
+export {
+  getAllNotificationsForAUser,
+  addNotification,
+  updateNotificationStatus,
+};

@@ -4,7 +4,7 @@ let userRouter = express.Router();
 
 import * as userController from '../controller/userController.js';
 import { firebaseMiddleware, authMiddleware ,publicMiddleware } from '../src/middlewares/auth.js';
-import imageUpload from '../src/middlewares/uploadImage.js';
+import {imageUpload} from '../src/middlewares/uploadImage.js';
 import { userCheck } from '../src/middlewares/userCheck.js';
 import setUser from '../src/middlewares/setUser.js';
 

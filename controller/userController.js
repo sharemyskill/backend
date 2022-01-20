@@ -116,13 +116,15 @@ const handleGETSingleUser = async (req, res, next) => {
           let transactions = await transactionInterface.getTransactionsforOrder(
             orderQueryResult.data?.acceptedOrder
           );
-
+          
           if (orderQueryResult.data.currentlyAcceptedOrderCount > 0) {
             orderQueryResult.data?.acceptedOrder.forEach((item) => {
               let obj = item;
-              if (transactions[item._id]?.confirmed) {
+             
+              if (transactions.data[item._id]?.confirmed) {
                 obj.orderStatus = 'verified';
-              } else if (transactions[item._id] != undefined) {
+              } else if (transactions.data[item._id] != undefined) {
+                
                 obj.orderStatus = 'unverified';
               }
 
@@ -219,8 +221,7 @@ const handlePUTRegisterUser = async (req, res, next) => {
         id: req.user._id,
         ...req.body,
       },
-      req.file?.filename,
-      req.file?.mimetype
+      req.file
     );
 
 

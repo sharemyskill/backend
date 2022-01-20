@@ -42,7 +42,6 @@ const handleGETReportsForAdmin = async(req, res, next) => {
         }
         return res.status(400).send(reportQueryResult);
     } catch (e) {
-        console.log('In handleGETReportsForAdmin: ' + e);
         return res.status(500).send({
             status: 'EXCEPTION',
             message: e.message,
@@ -50,8 +49,27 @@ const handleGETReportsForAdmin = async(req, res, next) => {
     }
 };
 
+
+const handlePUTChangeReportStatus = async( req, res , next ) => {
+    try {
+
+        const reportQueryResult = await reportInterface.changeReportStatus( req.body.reportId );
+
+        if (reportQueryResult.status == 'OK') {
+            return res.status(200).send(reportQueryResult);
+        }
+        return res.status(400).send(reportQueryResult);
+    } catch (e) {
+        return res.status(500).send({
+            status: 'EXCEPTION',
+            message: e.message,
+        });
+    }
+}
+
 export {
     handlePOSTaddReport,
     handleGETallReportsForAUser,
     handleGETReportsForAdmin,
+    handlePUTChangeReportStatus
 };

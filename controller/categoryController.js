@@ -64,38 +64,39 @@ const handlePOSTCreateCategory = async (req, res, next) => {
  */
 const handleGETSubCategoryByName = async (req, res, next) => {
   try {
-    let userQueryResultForSubcat , userQueryResultForCategory , result = [];
+    let userQueryResultForSubcat,
+      userQueryResultForCategory,
+      result = [];
 
     if (req.query?.sub) {
       userQueryResultForSubcat = await userInterface.getUsersSubCategory(
         req.query?.sub.split(',')
       );
 
-      if( userQueryResultForSubcat.status == "OK" ){
-        result.push( ...userQueryResultForSubcat.data )
+      if (userQueryResultForSubcat.status == 'OK') {
+        result.push(...userQueryResultForSubcat.data);
       }
-    } 
-    
-    if ( req.query?.cat ) {
-      userQueryResultForCategory = await userInterface.getUsersFromCategory(req.query?.cat);
-      if( userQueryResultForCategory.status == 'OK' ){
-        result.push( ...userQueryResultForCategory.data )
+    } else if (req.query?.cat) {
+      userQueryResultForCategory = await userInterface.getUsersFromCategory(
+        req.query?.cat
+      );
+      if (userQueryResultForCategory.status == 'OK') {
+        result.push(...userQueryResultForCategory.data);
       }
     }
 
-    
-    if (result.length != 0) {
+    if (result) {
       return res.status(200).send({
         data: result,
-        message: "Users found",
-        status: "OK"
+        message: 'Users found',
+        status: 'OK',
       });
     }
 
     return res.status(400).send({
       data: null,
-      message: "Users not found",
-      status: "OK"
+      message: 'Users not found',
+      status: 'OK',
     });
   } catch (e) {
     return res.status(500).send({

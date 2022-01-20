@@ -4,7 +4,7 @@ import mongoose from 'mongoose'
 const OrderSchema = new mongoose.Schema({
     orderStatus: {
         type: String,
-        enum: ['requested', 'accepted', 'completed','canceled','rejected'],
+        enum: ['requested', 'accepted', 'completed','canceled','rejected','refunded'],
         default: 'requested'
     },
     projectSize: {
@@ -57,7 +57,7 @@ const OrderSchema = new mongoose.Schema({
         type: String
     },
     orderDescription: {
-        type: String
+        type: String // buyer provides descriptions for the order
     }
 });
 
