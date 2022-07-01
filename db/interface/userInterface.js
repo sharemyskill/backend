@@ -90,11 +90,12 @@ const getUserById = async (userId) => {
  * @description create new user
  * @returns user
  */
-const createUser = async (body) => {
+const createUser = async (body, signInAs) => {
   try {
     const user = await User.create({
       _id: body.uid,
       email: body.email,
+      type: signInAs
     });
 
     if (user) {

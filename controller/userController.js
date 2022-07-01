@@ -48,7 +48,7 @@ const handleGETUser = async (req, res) => {
       return res.status(200).send(userQueryResult);
     } else {
       // insert the user into the database
-      userQueryResult = await userInterface.createUser(req.user);
+      userQueryResult = await userInterface.createUser(req.user, req.query?.signInAs || 'buyer');
 
       if (userQueryResult.status == 'OK') {
         return res.status(200).send(userQueryResult);
