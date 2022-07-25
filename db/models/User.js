@@ -180,6 +180,11 @@ const UserSchema = new mongoose.Schema({
     image: {
         type: Boolean,
         default: false
+    },
+
+    isSkillerProfileCompleted: {
+      type: Boolean,
+      default: false
     }
 
     // image: {

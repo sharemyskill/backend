@@ -189,6 +189,7 @@ const registerUser = async (body, file) => {
           projectPrice: body.projectPrice,
           projectDuration: body.projectDuration,
           image: img ? true : false,
+          isSkillerProfileCompleted: true
         },
         {
           new: true,
@@ -211,6 +212,7 @@ const registerUser = async (body, file) => {
           projectDescriptions: body.projectDescriptions,
           projectPrice: body.projectPrice,
           projectDuration: body.projectDuration,
+          isSkillerProfileCompleted: true
         },
         {
           new: true,
